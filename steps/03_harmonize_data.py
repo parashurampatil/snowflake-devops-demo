@@ -3,6 +3,8 @@
 
 import os
 
+silver_schema = root.databases[f"quickstart_{os.environ['environment']}"].schemas["silver"]
+
 from snowflake.core import Root, CreateMode
 from snowflake.snowpark import Session
 from snowflake.core.user_defined_function import (
