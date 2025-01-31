@@ -1,6 +1,6 @@
 USE ROLE ACCOUNTADMIN;
 
-CREATE OR ALTER WAREHOUSE QUICKSTART_WH__{{environment}}
+CREATE OR ALTER WAREHOUSE QUICKSTART_WH
   WAREHOUSE_SIZE = XSMALL 
   AUTO_SUSPEND = 300 
   AUTO_RESUME= TRUE;
@@ -22,7 +22,7 @@ CREATE OR REPLACE GIT REPOSITORY quickstart_common.public.quickstart_repo
   API_INTEGRATION = git_api_integration
   ORIGIN = 'https://github.com/parashurampatil/snowflake-devops-demo.git'; -- INSERT URL OF FORKED REPO HERE
 
-CREATE OR ALTER DATABASE QUICKSTART_{{environment}};
+CREATE OR ALTER DATABASE QUICKSTART_DEV;
 
 
 -- To monitor data pipeline's completion
