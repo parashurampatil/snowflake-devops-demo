@@ -1,6 +1,6 @@
 USE ROLE ACCOUNTADMIN;
 
-CREATE OR ALTER WAREHOUSE QUICKSTART_WH 
+CREATE OR ALTER WAREHOUSE QUICKSTART_WH__{{environment}}
   WAREHOUSE_SIZE = XSMALL 
   AUTO_SUSPEND = 300 
   AUTO_RESUME= TRUE;
@@ -23,7 +23,6 @@ CREATE OR REPLACE GIT REPOSITORY quickstart_common.public.quickstart_repo
   ORIGIN = 'https://github.com/parashurampatil/snowflake-devops-demo.git'; -- INSERT URL OF FORKED REPO HERE
 
 
-CREATE OR ALTER DATABASE QUICKSTART_PROD;
 
 
 -- To monitor data pipeline's completion
@@ -41,7 +40,3 @@ CREATE OR ALTER SCHEMA gold;
 -- Schema level objects
 CREATE OR REPLACE FILE FORMAT bronze.json_format TYPE = 'json';
 CREATE OR ALTER STAGE bronze.raw;
-
-
--- Copy file from GitHub to internal stage
-copy files into @bronze.raw from @quickstart_common.public.quickstart_repo/branches/main/data/airport_list.json;
