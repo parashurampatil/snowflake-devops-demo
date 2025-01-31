@@ -1,4 +1,4 @@
-create or replace TABLE Silver.CUSTOMER (
+create or replace TABLE QUICKSTART_{{environment}}.Silver.CUSTOMER (
 	C_CUSTKEY NUMBER(38,0),
 	C_NAME VARCHAR(25),
 	C_ADDRESS VARCHAR(40),
